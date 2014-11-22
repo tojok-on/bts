@@ -12,3 +12,4 @@ bundle install --path vendor/bundle
 bundle exec ruby bts.rb
 ```
 
+Open `http://localhost:3000/`.
