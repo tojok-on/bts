@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>こまどりおねえちゃんしすてむ（鉄）</title>
+    <meta name="ROBOTS" content="NONE" />
+    <meta name="GOOGLEBOT" content="NONE" />
+    <link rel="stylesheet" type="text/css" href="css/sister.css" />
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/title.js" /></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#add").click(function(){
+                var num;
+                num = parseInt($("#setlist > tr:last > td:first").text());
+                if (num > 19) return;
+                var addhtml;
+                addhtml = '<tr id="tune' + num + '" style="display:none;" class="tunecenter">';
+                addhtml += "<td>" + (num+1) + "</td>";
+                addhtml += '<td><input type="text" id="tune' + num + '" name="tune' + num + '" /></td>';
+                addhtml += '<td><input type="text" id="time' + num + '" name="time' + num + '" /></td>';
+                addhtml += '<td>';
+                addhtml += '<input type="checkbox" id="halogen_front_red' + num + '" name="halogen_front' + num + '" value="red" />赤&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_yellow' + num + '" name="halogen_front' + num + '" value="yellow" />黄&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_blue' + num + '" name="halogen_front' + num + '" value="blue" />青&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_green' + num + '" name="halogen_front' + num + '" value="green" />緑<br>&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_lightblue' + num + '" name="halogen_front' + num + '" value="lightblue" />水色&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_purple' + num + '" name="halogen_front' + num + '" value="purple" />紫&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_orange' + num + '" name="halogen_front' + num + '" value="orange" />橙&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_pink' + num + '" name="halogen_front' + num + '" value="pink" />桃&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_white' + num + '" name="halogen_front' + num + '" value="white" />白&nbsp;';
+                addhtml += '</td>';
+                addhtml += '<td>';
+                addhtml += '<ul class="okno"><li class="ok"><input type="radio" id="backlight_on' + num + '" name="backlight' + num + '" value="1" /></li>';
+                addhtml += '<li class="no"><input type="radio" id="backlight_off' + num + '" name="backlight' + num + '" value="0" checked/></li></ul>';
+				addhtml += '</td>';
+                addhtml += '<td>';
+                addhtml += '<ul class="okno"><li class="ok"><input type="radio" id="strobo_on' + num + '" name="strobo' + num + '" value="1" /></li>';
+                addhtml += '<li class="no"><input type="radio" id="strobo_off' + num + '" name="strobo' + num + '" value="0" checked/></li></ul>';
+				addhtml += '</td>';
+                addhtml += '<td>';
+                addhtml += '<ul class="okno"><li class="ok"><input type="radio" id="mirror_on' + num + '" name="mirror' + num + '" value="1" /></li>';
+                addhtml += '<li class="no"><input type="radio" id="mirror_off' + num + '" name="mirror' + num + '" value="0" checked/><li></ul>';
+				addhtml += '</td>';
+                addhtml += '<td>';
+                addhtml += '<ul class="okno"><li class="ok"><input type="radio" id="blackout_on' + num + '" name="blackout' + num + '" value="1" /></li>';
+                addhtml += '<li class="no"><input type="radio" id="blackout_off' + num + '" name="blackout' + num + '" value="0" checked/></li></ul>';
+				addhtml += '</td>';
+
+                addhtml += '</tr>';
+
+                $("#setlist").append(addhtml);
+                $("#tune" + num).fadeIn("slow")
+            });
+        });
+    </script>
+  </head>
+  <body>
+
+    <div id="container">
+      <header>
+	      <h1>こまどりおねえちゃんしすてむ　（鉄）</h1>
+        <div class="title_iron">        <a href="http://tojok-on.com/bts"><img src="images/iron.png"></a></div>
+
+      </header>
+      <section>
+
+        <p class="info">
+          「こまどりおねえちゃんしすてむ（鉄）」はTOJO K-ONのセッティング表を作るシステムだよっ☆<br />
+          何か困ったことがあったら <a href="http://twitter.com/#!/round_kmdr">@round_kmdr</a> まで連絡してねっ☆
+        </p>
+        <strong>更新情報☆</strong>
+        <div class="infobox">
+	        <p>2014年3月8日　Ver1.1.1</p>
+	        <ul class="info">
+				<li>表示されない罫線を修正しました。</li>
+				<li>幅を可変にすることで、長い曲名にも対応しました。</li>
+			</ul>
+        </div>
+        <div class="infobox">
+	        <p>2014年3月7日　Ver1.1.0</p>
+	        <ul class="info">
+				<li>PDFに表示できる曲数が最大15曲（MCを1曲としてカウント）となりました。</li>
+				<li>照明のその他要望欄が広くなったので、どしどしご要望ください。</li>
+				<li>色のイメージが9色から選択可能になりました。</li>
+				<li>逆光・ストロボ・ミラーボール・全消しは○もしくは×で表記されます。<br>（今までは○もしくは空欄でした。）</li>
+			</ul>
+        </div>
+
+      </section>
+      <form action="make_setting_list.cgi" method="post">
+        <section>
+          <fieldset>
+            <legend><img src="images/band.png" /></legend>
+			<hr>
+            <p>バンドについての情報を入力してねっ☆</p>
+            <dl>
+            <label>
+				<dt>バンド名</dt>
+				<dd><input type="text" id="band" name="band" value="" /></dd>
+            </label>
+            <label>
+				<dt>代表者名</dt>
+				<dd><input type="text" id="representative" name="representative" value="" /></dd>
+            </label>
+            <label>
+				<dt>出演順</dt>
+				<dd><input type="text" id="orderday" name="orderday" value="" />日目　<input type="text" id="ordernum" name="ordernum" value="" />番目</dd>
+            </label>
+            <label>
+				<dt>出演時間</dt>
+				<dd><input type="text" id="time" name="time" value="" /></dd>
+            </label>
+            <label>
+				<dt>ドラマー名</dt>
+				<dd><input type="text" id="drummer" name="drummer" value="" /></dd>
+            </label>
+
+            </dl>
+          </fieldset>
+        </section>
+        <section>
+          <fieldset>
+            <legend><img src="images/setlist.png" /></legend>
+			<hr>
+            <p>せっとりすとについて入力してねっ☆（MCも入力してねっ☆）</p>
+			<strong>注意事項だよっ☆</strong>
+			<ul class="info">
+			<li>色のイメージを選択しないと、PDFで表示されません。必ず選択してください。間違えて曲数を多く出しすぎた場合は、色のイメージを選択しなければそれ以下の曲はPDFに表示されません。</li>
+			</ul>
+
+            <table>
+
+			  <thead>
+                  <tr>
+                      <th>曲順</th>
+                      <th>曲名</th>
+                      <th>演奏時間(分)</th>
+                      <th>色のイメージ</th>
+                      <th>逆　光</th>
+                      <th>ストロボ</th>
+                      <th>ミラー<br>ボール</th>
+                      <th>全消し</th>
+                      <th></th>
+                      
+                  </tr>
+              </thead>
+              <tbody id="setlist">
+                  <tr id="tune0" class="tunecenter">
+                      <td>1</td>
+                      <td><input type="text" id="tune0" name="tune0" value="" /></td>
+                      <td><input type="text" id="time0" name="time0" value=""/></td>
+    <td>
+        <input type="checkbox" id="halogen_front_red0" name="halogen_front0" value="red" />赤
+        <input type="checkbox" id="halogen_front_yellow0" name="halogen_front0" value="yellow" />黄
+        <input type="checkbox" id="halogen_front_blue0" name="halogen_front0" value="blue" />青
+        <input type="checkbox" id="halogen_front_green0" name="halogen_front0" value="green" />緑<br>
+        <input type="checkbox" id="halogen_front_lightblue0" name="halogen_front0" value="lightblue" />水色
+        <input type="checkbox" id="halogen_front_purple0" name="halogen_front0" value="purple" />紫
+        <input type="checkbox" id="halogen_front_orange0" name="halogen_front0" value="orange" />橙
+        <input type="checkbox" id="halogen_front_pink0" name="halogen_front0" value="pink" />桃
+        <input type="checkbox" id="halogen_front_white0" name="halogen_front0" value="white" />白
+
+    </td>
+    <td>
+        <ul class="okno">
+        <li class="ok"><input type="radio" id="backlight_on0" name="backlight0" value="1" /></li>
+        <li class="no"><input type="radio" id="backlight_off0" name="backlight0" value="0" checked/></li>
+        </ul>
+    </td>
+    <td>
+        <ul class="okno">
+        <li class="ok"><input type="radio" id="strobo_on0" name="strobo0" value="1" /></li>
+        <li class="no"><input type="radio" id="strobo_off0" name="strobo0" value="0" checked/></li>
+        </ul>
+	</td>
+    <td>
+        <ul class="okno">
+        <li class="ok"><input type="radio" id="mirror_on0" name="mirror0" value="1" /></li>
+        <li class="no"><input type="radio" id="mirror_off0" name="mirror0" value="0" checked/></li>
+        </ul>
+	</td>
+    <td>
+        <ul class="okno">
+        <li class="ok"><input type="radio" id="blackout_on0" name="blackout0" value="1" /></li>
+        <li class="no"><input type="radio" id="blackout_off0" name="blackout0" value="0" checked/></li>
+        </ul>
+	</td>
+
+
+                  </tr>
+              </tbody>
+            </table>
+            <p><a id="add" class="link"><img src="images/onemore_off.png" width="100px"></a></p>
+          </fieldset>
+        </section>
+
+          <section>
+              <p class="submit"><button class="button" type="submit" value=""><img src="images/gene.png" class="link"></button></p>
+          </section>
+      </form>
+      
+      <footer>(c) TOJO K-ON</footer>
+    </div>
+  </body>
+</html>

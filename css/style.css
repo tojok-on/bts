@@ -1,0 +1,9 @@
+input.button {
+    width: 128px;
+    height: 128px;
+    background: url(button.png) top left no-repeat;
+    color: #666;
+    font-size: 500%;
+    border: 0;
+    cursor: pointer;
+}

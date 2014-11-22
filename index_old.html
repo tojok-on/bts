@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>たさきおにいちゃん☆しすてむっ</title>
+    <meta name="ROBOTS" content="NONE" />
+    <meta name="GOOGLEBOT" content="NONE" />
+    <link rel="stylesheet" type="text/css" href="brother.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        $(function(){
+            $("#add").click(function(){
+                var num;
+                num = parseInt($("#setlist > tr:last > td:first").text());
+                if (num > 19) return;
+                var addhtml;
+                addhtml = '<tr id="tune' + num + '" style="display:none;">';
+                addhtml += "<td>" + (num+1) + "</td>";
+                addhtml += '<td><input type="text" id="tune' + num + '" name="tune' + num + '" /></td>';
+                addhtml += '<td><input type="text" id="time' + num + '" name="time' + num + '" /></td>';
+                addhtml += '<td>';
+                addhtml += '<input type="radio" id="halogen_front_red' + num + '" name="halogen_front' + num + '" value="red" />赤&nbsp;';
+                addhtml += '<input type="radio" id="halogen_front_yellow' + num + '" name="halogen_front' + num + '" value="yellow" />黄&nbsp;';
+                addhtml += '<input type="radio" id="halogen_front_blue' + num + '" name="halogen_front' + num + '" value="blue" />青&nbsp;';
+                addhtml += '<input type="radio" id="halogen_front_white' + num + '" name="halogen_front' + num + '" value="white" />白&nbsp;';
+                addhtml += '<input type="radio" id="halogen_front_black' + num + '" name="halogen_front' + num + '" value="black" />無&nbsp;';
+                addhtml += '</td>';
+                addhtml += '<td>';
+                addhtml += '<input type="radio" id="halogen_drum_red' + num + '" name="halogen_drum' + num + '" value="red" />赤&nbsp;';
+                addhtml += '<input type="radio" id="halogen_drum_yellow' + num + '" name="halogen_drum' + num + '" value="yellow" />黄&nbsp;';
+                addhtml += '<input type="radio" id="halogen_drum_blue' + num + '" name="halogen_drum' + num + '" value="blue" />青&nbsp;';
+                addhtml += '<input type="radio" id="halogen_drum_white' + num + '" name="halogen_drum' + num + '" value="white" />白&nbsp;';
+                addhtml += '<input type="radio" id="halogen_drum_black' + num + '" name="halogen_drum' + num + '" value="black" />無&nbsp;';
+                addhtml += '</td>';
+                addhtml += '</tr>';
+
+                $("#setlist").append(addhtml);
+                $("#tune" + num).fadeIn("slow")
+            })
+        })
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>たさきおにいちゃん☆しすてむっ</h1>
+      </header>
+      <section>
+        <p>
+          「たさきおにいちゃん☆しすてむっ」はセッティング表を作るシステムだよっ☆<br />
+          何か困ったことがあったら <a href="http://twitter.com/#!/iron_showgo">@iron_showgo</a> まで連絡してねっ☆<br />
+          普通のは<a href="normal.html">こっち</a>だよっ☆
+        </p>
+      </section>
+      <form action="make_setting_list.cgi" method="post">
+        <section>
+          <fieldset>
+            <legend><img src="bandnitsuite.png" /></legend>
+            <p>バンドについての情報を入力してねっ☆</p>
+            <dl>
+            <label>
+              <dt>バンド名</dt>
+              <dd><input type="text" id="band" name="band" value="" /></dd>
+            </label>
+            <label>
+              <dt>代表者名</dt>
+              <dd><input type="text" id="representative" name="representative" value="" /></dd>
+            </label>
+            <label>
+              <dt>出演順</dt>
+              <dd><input type="text" id="order" name="order" value="" /></dd>
+            </label>
+            <label>
+              <dt>出演時間</dt>
+              <dd><input type="text" id="time" name="time" value="" /></dd>
+            </label>
+            <label>
+                <dt>ドラマー名</dt>
+                <dd><input type="text" id="drummer" name="drummer" value="" /></dd>
+            </label>
+
+            </dl>
+          </fieldset>
+        </section>
+        <section>
+          <fieldset>
+            <legend><img src="setlist.png" /></legend>
+            <p>
+                せっとりすとについて入力してねっ☆
+                （MCも入力してねっ☆）
+            </p>
+            <table>
+              <caption>セットリスト</caption>
+              <thead>
+                  <tr>
+                      <th>曲順</th>
+                      <th>曲名</th>
+                      <th>演奏時間(分)</th>
+                      <th>ハロゲン(上手)</th>
+                      <th>ハロゲン(下手)</th>
+                  </tr>
+              </thead>
+              <tbody id="setlist">
+                  <tr id="tune0">
+                      <td>1</td>
+                      <td><input type="text" id="tune0" name="tune0" value="" /></td>
+                      <td><input type="text" id="time0" name="time0" value="" /></td>
+    <td>
+        <input type="radio" id="halogen_front_red0" name="halogen_front0" value="red" />赤
+        <input type="radio" id="halogen_front_yellow0" name="halogen_front0" value="yellow" />黄
+        <input type="radio" id="halogen_front_blue0" name="halogen_front0" value="blue" />青
+        <input type="radio" id="halogen_front_white0" name="halogen_front0" value="white" />白
+        <input type="radio" id="halogen_front_black0" name="halogen_front0" value="black" />無
+    </td>
+    <td>
+        <input type="radio" id="halogen_drum_red0" name="halogen_drum0" value="red" />赤
+        <input type="radio" id="halogen_drum_yellow0" name="halogen_drum0" value="yellow" />黄
+        <input type="radio" id="halogen_drum_blue0" name="halogen_drum0" value="blue" />青
+        <input type="radio" id="halogen_drum_white0" name="halogen_drum0" value="white" />白
+        <input type="radio" id="halogen_drum_black0" name="halogen_drum0" value="black" />無
+    </td>
+                  </tr>
+              </tbody>
+            </table>
+            <p><a id="add">もう1曲☆</a></p>
+          </fieldset>
+        </section>
+
+          <section>
+              <p><input class="button" type="submit" value="" /></p>
+          </section>
+      </form>
+    </div>
+  </body>
+</html>
