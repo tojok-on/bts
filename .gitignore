@@ -1,4 +1,7 @@
-/pdf/
+.DS_Store
+*.swp
+
+/public/pdf/
 
 /.bundle
 /vendor/bundle

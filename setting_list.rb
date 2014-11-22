@@ -249,7 +249,7 @@ class SettingList
       pdf.stroke_bounds
       pdf.text "セッティング", :size => 10
       pdf.text "観客席側", :align => :center, :size => 8
-      pdf.image("images/drum.png", :scale => 0.4, :align => :center) 
+      pdf.image(DRUM_IMG, :scale => 0.4, :align => :center) 
     end
 
   end
@@ -379,7 +379,7 @@ class SettingList
     pdf.font_size 16
     pdf.text "バンド名: " + @band
     pdf.text "代表者　: " + @representative
-    pdf.text "演奏順　: " + @orderday + "日目" + @ordernum + "番目　 (#{@time}分)"
+    pdf.text "演奏順　: #{@orderday}日目 #{@ordernum}番目  (#{@time}分)"
     pdf.text "ドラマー: " + @drummer if title == "ドラムローディー"
     pdf.move_down 5
     pdf.stroke_horizontal_line pdf.bounds.left, pdf.bounds.right

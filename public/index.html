@@ -16,22 +16,22 @@
             $("#add").click(function(){
                 var num;
                 num = parseInt($("#setlist > tr:last > td:first").text());
-                if (num > 19) return;
+                if (num > 14) return;
                 var addhtml;
                 addhtml = '<tr id="tune' + num + '" style="display:none;" class="tunecenter">';
                 addhtml += "<td>" + (num+1) + "</td>";
                 addhtml += '<td><input type="text" id="tune' + num + '" name="tune' + num + '" /></td>';
                 addhtml += '<td><input type="text" id="time' + num + '" name="time' + num + '" /></td>';
                 addhtml += '<td>';
-                addhtml += '<input type="checkbox" id="halogen_front_red' + num + '" name="halogen_front' + num + '" value="red" />赤&nbsp;';
-                addhtml += '<input type="checkbox" id="halogen_front_yellow' + num + '" name="halogen_front' + num + '" value="yellow" />黄&nbsp;';
-                addhtml += '<input type="checkbox" id="halogen_front_blue' + num + '" name="halogen_front' + num + '" value="blue" />青&nbsp;';
-                addhtml += '<input type="checkbox" id="halogen_front_green' + num + '" name="halogen_front' + num + '" value="green" />緑<br>&nbsp;';
-                addhtml += '<input type="checkbox" id="halogen_front_lightblue' + num + '" name="halogen_front' + num + '" value="lightblue" />水色&nbsp;';
-                addhtml += '<input type="checkbox" id="halogen_front_purple' + num + '" name="halogen_front' + num + '" value="purple" />紫&nbsp;';
-                addhtml += '<input type="checkbox" id="halogen_front_orange' + num + '" name="halogen_front' + num + '" value="orange" />橙&nbsp;';
-                addhtml += '<input type="checkbox" id="halogen_front_pink' + num + '" name="halogen_front' + num + '" value="pink" />桃&nbsp;';
-                addhtml += '<input type="checkbox" id="halogen_front_white' + num + '" name="halogen_front' + num + '" value="white" />白&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_red' + num + '" name="halogen_front' + num + '[]" value="red" />赤&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_yellow' + num + '" name="halogen_front' + num + '[]" value="yellow" />黄&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_blue' + num + '" name="halogen_front' + num + '[]" value="blue" />青&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_green' + num + '" name="halogen_front' + num + '[]" value="green" />緑<br>&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_lightblue' + num + '" name="halogen_front' + num + '[]" value="lightblue" />水色&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_purple' + num + '" name="halogen_front' + num + '[]" value="purple" />紫&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_orange' + num + '" name="halogen_front' + num + '[]" value="orange" />橙&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_pink' + num + '" name="halogen_front' + num + '[]" value="pink" />桃&nbsp;';
+                addhtml += '<input type="checkbox" id="halogen_front_white' + num + '" name="halogen_front' + num + '[]" value="white" />白&nbsp;';
                 addhtml += '</td>';
                 addhtml += '<td>';
                 addhtml += '<ul class="okno"><li class="ok"><input type="radio" id="backlight_on' + num + '" name="backlight' + num + '" value="1" /></li>';
@@ -91,7 +91,7 @@
         </div>
 
       </section>
-      <form action="make_setting_list.cgi" method="post">
+      <form action="/" method="post">
         <section>
           <fieldset>
             <legend><img src="images/band.png" /></legend>
@@ -112,7 +112,7 @@
             </label>
             <label>
 				<dt>出演時間</dt>
-				<dd><input type="text" id="time" name="time" value="" /></dd>
+				<dd><input type="text" id="time" name="time" value="" />分</dd>
             </label>
             <label>
 				<dt>ドラマー名</dt>
@@ -154,15 +154,15 @@
                       <td><input type="text" id="tune0" name="tune0" value="" /></td>
                       <td><input type="text" id="time0" name="time0" value=""/></td>
     <td>
-        <input type="checkbox" id="halogen_front_red0" name="halogen_front0" value="red" />赤
-        <input type="checkbox" id="halogen_front_yellow0" name="halogen_front0" value="yellow" />黄
-        <input type="checkbox" id="halogen_front_blue0" name="halogen_front0" value="blue" />青
-        <input type="checkbox" id="halogen_front_green0" name="halogen_front0" value="green" />緑<br>
-        <input type="checkbox" id="halogen_front_lightblue0" name="halogen_front0" value="lightblue" />水色
-        <input type="checkbox" id="halogen_front_purple0" name="halogen_front0" value="purple" />紫
-        <input type="checkbox" id="halogen_front_orange0" name="halogen_front0" value="orange" />橙
-        <input type="checkbox" id="halogen_front_pink0" name="halogen_front0" value="pink" />桃
-        <input type="checkbox" id="halogen_front_white0" name="halogen_front0" value="white" />白
+        <input type="checkbox" id="halogen_front_red0" name="halogen_front0[]" value="red" />赤
+        <input type="checkbox" id="halogen_front_yellow0" name="halogen_front0[]" value="yellow" />黄
+        <input type="checkbox" id="halogen_front_blue0" name="halogen_front0[]" value="blue" />青
+        <input type="checkbox" id="halogen_front_green0" name="halogen_front0[]" value="green" />緑<br>
+        <input type="checkbox" id="halogen_front_lightblue0" name="halogen_front0[]" value="lightblue" />水色
+        <input type="checkbox" id="halogen_front_purple0" name="halogen_front0[]" value="purple" />紫
+        <input type="checkbox" id="halogen_front_orange0" name="halogen_front0[]" value="orange" />橙
+        <input type="checkbox" id="halogen_front_pink0" name="halogen_front0[]" value="pink" />桃
+        <input type="checkbox" id="halogen_front_white0" name="halogen_front0[]" value="white" />白
 
     </td>
     <td>
