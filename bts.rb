@@ -1,12 +1,16 @@
 require 'sinatra'
+require 'slim'
 require 'prawn'
 require 'prawn/table'
 require './setting_list'
 
 # 設定
 MAX_TUNES = 15
-PDF_DIR   = File.expand_path("./public/pdf", File.dirname(__FILE__))
-DRUM_IMG  = File.expand_path("./public/images/drum.png", File.dirname(__FILE__))
+PDF_DIR   = File.dirname(__FILE__) + "/public/pdf"
+DRUM_IMG  = File.dirname(__FILE__) + "/public/images/drum.png"
+
+set :port, 3000
+set :bind, "0.0.0.0"
 
 # セットリスト配列作成メソッド
 def tunes
@@ -39,11 +43,10 @@ def get_setting_list(tunes)
 end
 
 # ファイル名作成メソッド
-def get_pdf_path
+def get_pdf_filename
   loop do
     filename = Time.now.strftime("%Y%m%d%H%M%S#{rand(10000)}") + ".pdf"
-    full_path = File.join(PDF_DIR, filename)
-    return full_path unless File.exist?(full_path)
+    return filename unless File.exist?(File.join(PDF_DIR, filename))
   end
 end
 
@@ -65,9 +68,9 @@ end
 
 post "/" do
   sl = get_setting_list(tunes)
-  pdf_path = get_pdf_path
-  generate_pdf(pdf_path, sl)
+  @filename = get_pdf_filename
+  generate_pdf(File.join(PDF_DIR, @filename), sl)
 
-  redirect "/index.html"
+  slim :result
 end
 
