@@ -9,7 +9,7 @@ MAX_TUNES = 15
 PDF_DIR   = File.dirname(__FILE__) + "/public/pdf"
 DRUM_IMG  = File.dirname(__FILE__) + "/public/images/drum.png"
 
-set :port, ENV["BTS_PORT"].to_i || 3000
+set :port, ENV["BTS_PORT"] ? ENV["BTS_PORT"].to_i : 3000
 set :bind, "0.0.0.0"
 
 # セットリスト配列作成メソッド
