@@ -1,0 +1,11 @@
+[Unit]
+Description=BTS
+After=network-online.target docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/docker start -a bts
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
