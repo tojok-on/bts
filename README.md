@@ -3,10 +3,10 @@
 
 「こまどりおねえちゃんしすてむ（鉄）」はTOJO K-ONのセッティング表を作るシステムだよっ☆
 
-# Usage
+# ローカルでの動かし方 
 
 ```bash
-$ git clone git@github.com:nownabe/bts.git
+$ git clone https://github.com/tojok-on/bts.git
 $ cd bts
 $ bundle install --path vendor/bundle
 $ bundle exec ruby bts.rb
