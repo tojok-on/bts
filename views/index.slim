@@ -1,0 +1,126 @@
+doctype html
+html lang="ja"
+  head
+    meta charset="UTF-8"
+    title = Bts.config.title
+    meta name="robots" content="none"
+    link rel="stylesheet" href="styles/default.css"
+    script src="scripts/jquery-1.8.3.min.js"
+    script src="scripts/title.js"
+    script src="scripts/bts.js"
+
+  body
+    #container
+      header
+        h1 = Bts.config.title
+        .title_iron
+          a href="#"
+            img src="images/iron.png"
+
+      section#information
+        p.description == Bts.config.description
+        p.bts
+          | このWebサービスは
+          a href="https://github.com/tojok-on/bts" bts
+          | というオープンソースソフトウェアを使って公開されています。
+          a href="https://github.com/tojok-on/bts/issues/new?labels=enhancement" 要望
+          | や
+          a href="https://github.com/tojok-on/bts/issues/new?labels=bug" バグ報告
+          | 、
+          a href="https://github.com/tojok-on/bts/issues/new?labels=question" 質問
+          | は
+          a href="https://github.com/tojok-on/bts/issues" GithubのIssue
+          | にお願いします。
+
+      form method="post"
+        section
+          fieldset
+            legend
+              img src="images/band.png"
+            hr
+            p バンドについての情報を入力してねっ☆
+            dl
+              dt
+                label バンド名
+              dd
+                input type="text" id="band_name_field" name="band_name" value=""
+              dt
+                label 代表者名
+              dd
+                input type="text" id="representative_field" name="representative" value=""
+              dt
+                label 出演日
+              dd
+                input type="text" id="play_date" name="play_date" value=""
+                | 日目
+              dt
+                label 出演順
+              dd
+                input type="text" id="play_order" name="play_order" value=""
+                | 番目
+              dt
+                label ドラマー名
+              dd
+                input type="text" id="drummer_name" name="drummer_name" value=""
+        section
+          fieldset
+            legend
+              img src="images/setlist.png"
+            hr
+            p せっとりすとについて入力してねっ☆（MCも入力してねっ☆）
+            strong 注意事項だよっ☆
+            ul.info
+              li
+                | 色のイメージを選択しないと、PDFで表示されません。
+                | 必ず選択してください。
+                | 間違えて曲数を多く出しすぎた場合は、色のイメージを選択しなければそれ以下の曲はPDFに表示されません。
+
+            table
+              thead
+                tr
+                  th 曲順
+                  th 曲名
+                  th 演奏時間 (分)
+                  th 色のイメージ
+                  th 逆光
+                  th ストロボ
+                  th ミラーボール
+                  th 全消し
+              tbody#setlist
+                tr#tune_0.tunecenter
+                  td 1
+                  td
+                    input type="text" name="tunes[0][title]" value=""
+                  td
+                    input type="text" name="tunes[0][length]" value=""
+                  td
+                    - Bts.config.lights.colors.each do |color, name|
+                      input type="checkbox" name="tunes[0][lights][colors][]" value=color = name
+                  td
+                    ul.okno
+                      li.ok
+                        input type="radio" name="tunes[0][lights][backlight]" value="1"
+                      li.no
+                        input type="radio" name="tunes[0][lights][backlight]" value="0" checked=true
+                  td
+                    ul.okno
+                      li.ok
+                        input type="radio" name="tunes[0][lights][strobo]" value="1"
+                      li.no
+                        input type="radio" name="tunes[0][lights][strobo]" value="0" checked=true
+                  td
+                    ul.okno
+                      li.ok
+                        input type="radio" name="tunes[0][lights][blackout]" value="1"
+                      li.no
+                        input type="radio" name="tunes[0][lights][blackout]" value="0" checked=true
+            p
+              a#add.link
+                img src="images/onemore_off.png" width="100px"
+
+        section
+          p.submit
+            button.button type="submit" value=""
+              img.link src="images/gene.png"
+
+    footer &copy; TOJO K-ON

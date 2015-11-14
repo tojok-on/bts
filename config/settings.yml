@@ -1,0 +1,16 @@
+title: こまどりおねえちゃんしすてむ (鉄)
+description: |-
+  「こまどりおねえちゃんしすてむ（鉄）」はTOJO K-ONのセッティング表を作るシステムだよっ☆<br />
+  何か困ったことがあったら <a href="http://twitter.com/#!/round_kmdr">@round_kmdr</a> まで連絡してねっ☆
+
+lights:
+  colors:
+    - [red, 赤]
+    - [yellow, 黃]
+    - [blue, 青]
+    - [green, 緑]
+    - [lightblue, 水色]
+    - [purple, 紫]
+    - [orange, 橙]
+    - [pink, 桃]
+    - [white, 白]
