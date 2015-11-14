@@ -1,8 +1,8 @@
 source 'https://rubygems.org/'
 
-gem 'sinatra'
-gem 'thin'
-gem 'slim'
-
-gem 'prawn'
-gem 'prawn-table'
+gem "app_root"
+gem "easy_settings"
+gem "prawn"
+gem "prawn-table"
+gem "sinatra"
+gem "slim"
