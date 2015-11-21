@@ -3,6 +3,7 @@ require 'slim'
 require 'prawn'
 require 'prawn/table'
 require './setting_list'
+require "securerandom"
 
 # 設定
 MAX_TUNES = 15
@@ -45,7 +46,7 @@ end
 # ファイル名作成メソッド
 def get_pdf_filename
   loop do
-    filename = Time.now.strftime("%Y%m%d%H%M%S#{rand(10000)}") + ".pdf"
+    filename = "#{SecureRandom.uuid}.pdf"
     return filename unless File.exist?(File.join(PDF_DIR, filename))
   end
 end
